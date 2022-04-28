@@ -1,4 +1,3 @@
-# https://django-background-tasks.readthedocs.io/en/latest/
 from time import sleep
 
 from config import USB_DRIVE_TYPE, USB_MEDIA_TYPE, WINDOWS_MANAGER, USB_HUB, TIME_BETWEEN_CHECK
