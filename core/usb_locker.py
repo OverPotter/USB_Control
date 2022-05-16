@@ -20,6 +20,8 @@ class UsbLocker(UsbLockerUtils, Crypto, DataBase, Logger):
 
         self.db_signature = None
 
+        self.access_list = set()
+
     def set_db_signature(self):
         db = DataBase()
         db.connect()
@@ -62,7 +64,11 @@ class UsbLocker(UsbLockerUtils, Crypto, DataBase, Logger):
             for usb_sign in self.db_signature:
                 for sign in self.signature_dict.keys():
                     if usb_sign == str(sign):
-                        self.unlock_notice()
+                        if str(sign) in self.access_list:
+                            continue
+                        else:
+                            self.unlock_notice()
+                            self.access_list.add(str(sign))
                     else:
                         self.edit_core(self.signature_dict[sign])
                         self.eject_usb()

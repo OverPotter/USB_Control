@@ -14,6 +14,9 @@ class UsbLockerUtils(Notice):
 
     @staticmethod
     def check_disk(disk_list: list) -> bool:
+        """
+        CRUTCH
+        """
         for disk in disk_list:
             if os.system(f'dir {disk}') != 0:
                 return False
