@@ -77,6 +77,12 @@ class UsbLocker(UsbLockerUtils, Crypto, DataBase, Logger):
         except RuntimeError:
             pass
 
+    def clear_params(self):
+        self.usb_diskName_list = []
+        self.PNP_list = []
+        self.signature_list = []
+        self.signature_dict = {}
+
     def run_usb_locker(self) -> None:
         try:
             if self.search_usb_type():
@@ -86,9 +92,11 @@ class UsbLocker(UsbLockerUtils, Crypto, DataBase, Logger):
                 self.create_sign_dict()
                 self.compare_signature()
                 sleep(TIME_BETWEEN_CHECK)
+                self.clear_params()
                 self.run_usb_locker()
             else:
                 sleep(TIME_BETWEEN_CHECK)
+                self.clear_params()
                 self.run_usb_locker()
         except Exception as e:
             self.error_notice(str(e))
