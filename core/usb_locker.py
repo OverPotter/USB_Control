@@ -101,14 +101,3 @@ class UsbLocker(UsbLockerUtils, Crypto, DataBase, Logger):
         except Exception as e:
             self.error_notice(str(e))
             raise Exception(str(e))
-
-
-if __name__ == '__main__':
-    u = UsbLocker()
-    u.run_usb_locker()
-    # u.search_usb_type()
-    # u.set_db_signature()
-    # u.create_PNPDeviceID_list()
-    # u.create_signature_list()
-    # u.create_sign_dict()
-    # u.compare_signature()
