@@ -18,12 +18,15 @@ ___
 After that u can run main.py
 
 If you insert an unregistered flash drive, you will see a notification
+
 ![](https://github.com/OverPotter/usb_control/blob/master/utils/img/usb_lock.PNG "USB Lock")
 
 When you insert a registered flash drive, you will see a notification
+
 ![](https://github.com/OverPotter/usb_control/blob/master/utils/img/usb_unlock.PNG "USB Unlock")
 
 In case of errors, you will see a notification
+
 ![](https://github.com/OverPotter/usb_control/blob/master/utils/img/error.PNG "Error")
 
 
